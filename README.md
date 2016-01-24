@@ -34,3 +34,6 @@ The version set by the build script is exposed as `version.Version()`:
     func main() {
         fmt.Println(version.Version())
     }
+
+If version was not set during the build, `version.Version()` returns
+`"unknown"`.
