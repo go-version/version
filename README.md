@@ -13,7 +13,7 @@ Go >=1.5:
 
     go build \
         -ldflags "-X github.com/go-version/version.version=${my_version}" \
-        # ... possible other flags
+        # ... possible other flags \
         your/main.go
 
 For Go <1.5 the syntax is a bit different. The equal sign is replaced by a
@@ -21,7 +21,7 @@ space:
 
     go build \
         -ldflags "-X github.com/go-version/version.version ${my_version}" \
-        # ... possible other flags
+        # ... possible other flags \
         your/main.go
 
 The version set by the build script is exposed as `version.Version()`:
