@@ -11,15 +11,15 @@ fi
 # Parse out the Go version because it is needed in the next step.
 # The output of `go version` looks like:
 #   go version go1.5.3 linux/amd64
-# Take the part between "go version go" and the next space.
-go_version=$(go version | grep -o -P '(?<=go version go)[^ ]+')
+# Take the third word.
+go_version=$(go version | cut -d' ' -f3)
 
 # Syntax for -X changed in Go 1.5. Before 1.5 the syntax was:
 #   -X importpath.name value
 # Since 1.5 the syntax is:
 #   -X importpath.name=value
 # If you know your build uses one or the other then this can be simplified.
-if [[ "${go_version}" < 1.5 ]]; then
+if [[ "${go_version}" < go1.5 ]]; then
     version_ld="version.version ${version}"
 else
     version_ld="version.version=${version}"
