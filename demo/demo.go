@@ -15,5 +15,5 @@ func main() {
 		fmt.Println(version.Version())
 		return
 	}
-	fmt.Println("not printing version")
+	flag.Usage()
 }
